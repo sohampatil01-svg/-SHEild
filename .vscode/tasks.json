@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Debug APK",
+            "type": "shell",
+            "command": "./gradlew.bat assembleDebug",
+            "group": "build"
+        },
+        {
+            "label": "Install and Launch App",
+            "type": "shell",
+            "command": "./gradlew.bat installDebug && adb shell am start -n com.example.fakecalldistress/.ui.SplashActivity",
+            "dependsOn": "Build Debug APK"
+        },
+        {
+            "label": "Check Prerequisites",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy Bypass -File ./scripts/check-prereqs.ps1"
+        },
+        {
+            "label": "Start Emulator",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy Bypass -File ./scripts/start-emulator.ps1"
+        }
+    ]
+}

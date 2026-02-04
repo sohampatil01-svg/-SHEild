@@ -1,0 +1,24 @@
+How to Run "Fake Call & Distress Simulator"
+
+Since you do not have Gradle or ADB installed globally in your CLI, you must use Android Studio.
+
+STEP 1: INITIALIZE
+1. Open Android Studio.
+2. Click "Open" and select this folder: C:\Users\HP\FakeCallDistressApp
+3. Wait for "Gradle Sync" to finish (bottom status bar). This will download the build tools.
+
+STEP 2: RUNNING
+1. Connect your Android Phone via USB (enable USB Debugging in Developer Options).
+   OR
+   Create a Virtual Device (Emulator) in Android Studio (Device Manager).
+2. Click the green "Run" (Play icon) button in the top toolbar.
+
+STEP 3: CLI (OPTIONAL)
+After you open it in Android Studio once, it creates a "gradlew.bat" file. 
+You can then run these commands from this directory:
+
+Build and Install:
+    .\gradlew.bat installDebug
+
+Start the App:
+    adb shell am start -n com.example.fakecalldistress/.ui.MainActivity
